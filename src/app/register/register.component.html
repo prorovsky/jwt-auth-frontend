@@ -1,3 +1,26 @@
-<p>
-  register works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h4>Новый пользователь</h4>
+    </mat-card-title>
+  </mat-card-header>
+  <form>
+    <mat-input-container>
+      <input [(ngModel)]="registerData.name" name="name" matInput placeholder="имя">
+    </mat-input-container>
+    <br>
+    <mat-input-container style="width: 50%;">
+      <textarea [(ngModel)]="registerData.description" name="description" matInput placeholder="о себе"></textarea>
+    </mat-input-container>
+    <br>
+    <mat-input-container>
+      <input [(ngModel)]="registerData.email" name="email" matInput placeholder="почта" type="email">
+    </mat-input-container>
+    <br>
+    <mat-input-container>
+      <input [(ngModel)]="registerData.password" name="password" matInput placeholder="пароль" type="password">
+    </mat-input-container>
+    <br>
+    <button (click)="post()" mat-raised-button color="primary">Регистрация</button>
+  </form>
+</mat-card>

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <mat-toolbar>
       Лучшая Социалка
+      <button mat-button [routerLink]="['/users']">Пользователи</button>
       <span style="flex: 1 1 auto"></span>
       <button mat-button [routerLink]="['/register']">Регистрация</button>
     </mat-toolbar>
