@@ -4,9 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <mat-toolbar>
-      Best-Social
+      Лучшая Социалка
       <span style="flex: 1 1 auto"></span>
-      <button mat-button [routerLink]="['/register']">Register</button>
+      <button mat-button [routerLink]="['/register']">Регистрация</button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,
