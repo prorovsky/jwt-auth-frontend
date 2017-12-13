@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <mat-toolbar>
-      Лучшая Социалка
+      <span [routerLink]="['/']" style="cursor: pointer;">Лучшая Социалка</span>
       <button mat-button [routerLink]="['/users']">Пользователи</button>
       <span style="flex: 1 1 auto"></span>
       <button mat-button [routerLink]="['/register']">Регистрация</button>

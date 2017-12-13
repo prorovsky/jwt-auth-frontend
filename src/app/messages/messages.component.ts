@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-messages',
@@ -10,12 +11,17 @@ import { ApiService } from '../api/api.service';
   `
 })
 export class MessagesComponent implements OnInit {
-
+  userId: string;
   constructor(
-    private apiService: ApiService
+    private apiService: ApiService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.apiService.getMessages();
+    this.route.paramMap.subscribe(params => {
+      this.userId = params.get('id');
+    });
+
+    this.apiService.getMessages(this.userId);
   }
 }

@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { ApiService } from './api/api.service';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserDetailComponent } from './users-list/user-detail/user-detail.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserDetailComponent } from './users-list/user-detail/user-detail.compon
     RegisterComponent,
     LoginComponent,
     UsersListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

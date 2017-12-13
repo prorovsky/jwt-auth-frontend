@@ -3,26 +3,34 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class ApiService {
-  messages: Array<object>;
-  users: Array<object>;
+  private basePath = 'http://localhost:3000';
+
+  messages = [];
+  users = [];
 
   constructor(
     private http: Http
   ) { }
 
-  getMessages() {
-    return this.http.get('http://localhost:3000/posts').subscribe(resp => {
+  getMessages(userId) {
+    return this.http.get(`${this.basePath}/posts/${userId}`).subscribe(resp => {
       this.messages = resp.json();
     });
   }
 
+  postMessage(formValues) {
+    return this.http.post(`${this.basePath}/post`, formValues).subscribe(resp => {
+
+    });
+  }
+
   getUsers() {
-    return this.http.get('http://localhost:3000/users').subscribe(resp => {
+    return this.http.get(`${this.basePath}/users`).subscribe(resp => {
       this.users = resp.json();
     });
   }
 
   getProfile(id) {
-    return this.http.get(`http://localhost:3000/profile/${id}`);
+    return this.http.get(`${this.basePath}/profile/${id}`);
   }
 }

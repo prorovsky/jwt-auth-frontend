@@ -19,6 +19,16 @@ import { ActivatedRoute } from '@angular/router';
       </mat-list>
     </mat-card-content>
   </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h4>Сообщения</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    <app-messages></app-messages>
+    </mat-card-content>
+  </mat-card>
   `,
   styleUrls: ['./user-detail.component.css']
 })
@@ -33,7 +43,6 @@ export class UserDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
-      console.log('id was', this.id);
     });
     this.apiService.getProfile(this.id).subscribe(data => {
       this.profile = data.json();
