@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
       <span [routerLink]="['/']" style="cursor: pointer;">Лучшая Социалка</span>
       <button mat-button [routerLink]="['/users']">Пользователи</button>
       <span style="flex: 1 1 auto"></span>
-      <button mat-button [routerLink]="['/register']">Регистрация</button>
+      <button mat-button *ngIf="!authService.isAuthenticated" [routerLink]="['/register']">Регистрация</button>
+      <button mat-button *ngIf="!authService.isAuthenticated" [routerLink]="['/login']">Войти</button>
+      <button mat-button *ngIf="authService.isAuthenticated" (click)="authService.logout()">Выйти</button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,
@@ -16,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   constructor(
-
+    private  authService: AuthService
   ) { }
 
   ngOnInit() {

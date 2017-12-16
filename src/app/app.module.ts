@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -21,6 +21,7 @@ import { ApiService } from './api/api.service';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserDetailComponent } from './users-list/user-detail/user-detail.component';
 import { PostComponent } from './post/post.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { PostComponent } from './post/post.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -46,7 +47,8 @@ import { PostComponent } from './post/post.component';
   ],
   providers: [
     ApiService,
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

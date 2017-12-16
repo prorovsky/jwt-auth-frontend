@@ -45,7 +45,7 @@ export class UserDetailComponent implements OnInit {
       this.id = params.get('id');
     });
     this.apiService.getProfile(this.id).subscribe(data => {
-      this.profile = data.json();
+      this.profile = data;
     });
   }
 
