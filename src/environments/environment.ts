@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  path: 'http://localhost:3000'
+  path: 'https://prorovsky-mean-social.herokuapp.com/'
 };
