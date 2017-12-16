@@ -26,6 +26,10 @@ const ROUTES = [
   {
     path: 'profile/:id',
     component: UserDetailComponent
+  },
+  {
+    path: '**',
+    component: PostComponent
   }
 ];
 
