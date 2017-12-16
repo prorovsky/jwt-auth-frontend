@@ -13,7 +13,7 @@ import { ApiService } from '../api/api.service';
 export class UsersListComponent implements OnInit {
 
   constructor(
-    private apiService: ApiService
+    public apiService: ApiService
   ) { }
 
   ngOnInit() {

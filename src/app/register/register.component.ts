@@ -7,7 +7,12 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registerData = {};
+  registerData = {
+    name: '',
+    description: '',
+    email: '',
+    password: ''
+  };
 
   constructor(
     private authService: AuthService

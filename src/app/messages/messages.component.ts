@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MessagesComponent implements OnInit {
   userId: string;
   constructor(
-    private apiService: ApiService,
+    public apiService: ApiService,
     private route: ActivatedRoute
   ) { }
 

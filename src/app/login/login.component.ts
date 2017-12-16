@@ -24,7 +24,10 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginData = {};
+  loginData = {
+    email: '',
+    password: ''
+  };
 
   constructor(
     private authService: AuthService

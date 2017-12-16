@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
-    private basePath = 'http://localhost:3000/auth';
+    private basePath = `${environment.path}/auth`;
     TOKEN_KEY = 'token';
 
   constructor(

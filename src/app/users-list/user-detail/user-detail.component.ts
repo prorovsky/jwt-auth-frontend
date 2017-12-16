@@ -34,7 +34,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
   id: string;
-  profile: object;
+  profile = {
+    name: '',
+    email: '',
+    description: ''
+  };
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute
@@ -44,7 +48,7 @@ export class UserDetailComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     });
-    this.apiService.getProfile(this.id).subscribe(data => {
+    this.apiService.getProfile(this.id).subscribe((data: any) => {
       this.profile = data;
     });
   }
